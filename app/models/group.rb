@@ -5,6 +5,14 @@ class Group < ApplicationRecord
   validates :name, presence: true
   validates :icon, presence: true
 
+  def total_amount
+    amount = 0
+    user_transactions.each do |transaction|
+      amount += transaction.amount
+    end
+    amount
+  end
+
   def icons
     data = JSON.parse(File.read('./app/icons/icons.json'))
   end
