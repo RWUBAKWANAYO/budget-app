@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :groups, foreign_key: 'author_id'
   has_many :user_transactions, foreign_key: 'author_id'
+
+  validates :name, presence: true, length: { maximum: 250 }
 end
