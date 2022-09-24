@@ -3,7 +3,7 @@ class UserTransactionsController < ApplicationController
   before_action :set_user_transaction
 
   def index
-    @user_transactions = @group.user_transactions
+    @user_transactions = @group.user_transactions.order(created_at: :desc)
   end
 
   def new
