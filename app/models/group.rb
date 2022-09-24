@@ -14,6 +14,6 @@ class Group < ApplicationRecord
   end
 
   def icons
-    data = JSON.parse(File.read('./app/icons/icons.json'))
+    JSON.parse(File.read('./app/icons/icons.json'))
   end
 end
