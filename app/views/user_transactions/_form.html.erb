@@ -1,4 +1,4 @@
-<%= form_with(model: user_transaction) do |form| %>
+<%= form_with model: user_transaction, url: group_user_transactions_path(@group) do |form| %>
   <% if user_transaction.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user_transaction.errors.count, "error") %> prohibited this user_transaction from being saved:</h2>
@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field">
+    <%= form.text_field :name , placeholder:"Transaction name", :required => true%>
   </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
+  <div class="field">
+    <%= form.number_field :amount , placeholder:"Transaction amount", :required => true, min:'1'%>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit 'Save transaction' %>
   </div>
 <% end %>

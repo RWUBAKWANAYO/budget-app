@@ -1,9 +1,7 @@
-<h1>New user transaction</h1>
-
+<section class="main-section">
+<h1 class="header" >NEW TRANSACTION</h1>
 <%= render "form", user_transaction: @user_transaction %>
 
-<br>
+<div class="links-wrapper"> <%= link_to "Back to Transactions", group_user_transactions_path, class:'link' %></div>
 
-<div>
-  <%= link_to "Back to user transactions", user_transactions_path %>
-</div>
+</section>
