@@ -4,4 +4,8 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :icon, presence: true
+
+  def icons
+    data = JSON.parse(File.read('./app/icons/icons.json'))
+  end
 end
