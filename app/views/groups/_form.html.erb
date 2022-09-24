@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field">
+    <%= form.text_field :name, placeholder:"Category name"%>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+  <div class="select-field">
+   <%= form.select :icon, @group.icons.map { |icon| [icon['name'], icon['url']] },
+   { :include_blank => 'Choose category icon' }, :required => true, class:'select-icon' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit 'Save category' %>
   </div>
 <% end %>
